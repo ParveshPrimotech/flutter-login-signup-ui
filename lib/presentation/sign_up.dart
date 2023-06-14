@@ -8,19 +8,22 @@ class SecondRoute extends StatelessWidget {
     return Scaffold(
       body: Form(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 14, vertical: 16),
+          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 16),
           child: Column(
             children: [
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 40.0, 0, 0),
-                alignment: Alignment.topLeft,
-                child: IconButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  icon: Icon(Icons.close),
-                ),
-              ),
+                  margin: const EdgeInsets.fromLTRB(0, 40.0, 0, 0),
+                  alignment: Alignment.topLeft,
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: Image.asset(
+                      'assets/images/close.png',
+                      height: 14.0,
+                      width: 14.0,
+                    ),
+                  )),
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 30.0, 0, 0),
                 alignment: Alignment.topLeft,
@@ -59,16 +62,48 @@ class SecondRoute extends StatelessWidget {
                   child: const customButton(
                       title: "LOGIN USING PASSWORD",
                       buttonType: "LOGINWITHPASSBUTTON")),
-
-         /*     const Expanded(
+              Expanded(
                 child: Column(
-                  mainAxisAlignment: Alig,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text("data"),
-                    Text("data2")
+                    const Text("New User? Register Here",
+                        style: TextStyle(
+                            fontSize: 14,
+                            color: Colors.black,
+                            fontWeight: FontWeight.w700)),
+                    Container(
+                      margin: const EdgeInsets.fromLTRB(0, 30.0, 0, 20.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Text("Or Continue with",
+                              style: TextStyle(
+                                  fontSize: 12,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w700)),
+                          Container(
+                            margin: const EdgeInsets.fromLTRB(14.0, 0, 0, 0),
+                            child: Image.asset(
+                              'assets/images/facebook.png',
+                              height: 24.0,
+                              width: 24.0,
+                            ),
+                          ),
+                          Container(
+                            margin: const EdgeInsets.fromLTRB(14.0, 0, 0, 0),
+                            child: Image.asset(
+                              'assets/images/google.png',
+                              height: 24.0,
+                              width: 24.0,
+                            ),
+                          )
+                        ],
+                      ),
+                    )
                   ],
                 ),
-              )*/
+              )
             ],
           ),
         ),
