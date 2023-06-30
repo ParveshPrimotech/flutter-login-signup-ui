@@ -21,7 +21,7 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: () {
-        _navigateToNextScreen(context, HomePage());
+        _navigateToNextScreen(context, const HomePage());
       },
       style: ElevatedButton.styleFrom(
           padding: EdgeInsets.zero,
@@ -44,7 +44,6 @@ class CustomButton extends StatelessWidget {
       ),
     );
   }
-
 }
 
 _navigateToNextScreen(BuildContext context, Widget route) {

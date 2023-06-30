@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 class CommonBottomNavigationBar extends StatefulWidget {
-  const CommonBottomNavigationBar({Key? key}) : super(key: key);
+  const CommonBottomNavigationBar({Key? key, required this.selected}) : super(key: key);
 
+  final void Function(int) selected;
   @override
   State<CommonBottomNavigationBar> createState() =>
       _CommonBottomNavigationBarState();
@@ -10,12 +11,6 @@ class CommonBottomNavigationBar extends StatefulWidget {
 
 class _CommonBottomNavigationBarState extends State<CommonBottomNavigationBar> {
   int _selectedIndex = 0;
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +33,13 @@ class _CommonBottomNavigationBarState extends State<CommonBottomNavigationBar> {
       selectedItemColor: Colors.black,
       currentIndex: _selectedIndex,
       iconSize: 40,
-      onTap: _onItemTapped,
+      onTap: (index){
+        widget.selected(index);
+
+        setState(() {
+          _selectedIndex = index;
+        });
+      },
       elevation: 5,
     );
   }
